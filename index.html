@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-switch">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <div class="timer-container">
+            <svg class="progress-ring" viewBox="0 0 400 400">
+                <circle class="progress-ring-circle-bg" cx="200" cy="200" r="180" />
+                <circle class="progress-ring-circle" cx="200" cy="200" r="180" />
+            </svg>
+            <div class="timer-display">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <div class="timer-label" id="timerLabel">Ishlash vaqti</div>
+            <div class="session-count">Sessiya: <span id="sessionCount">1</span>/4</div>
+        </div>
+
+        <div class="motivation-text" id="motivationText">
+            Diqqatingizni jamlang! 💪
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn btn-primary">BOSHLASH</button>
+            <button id="resetBtn" class="btn btn-warning">QAYTA BOSHLASH</button>
+            <button id="settingsBtn" class="btn btn-secondary">SOZLAMALAR</button>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-title">BUGUNGI SESSIYALAR</div>
+                <div class="stat-value" id="dailyCount">0</div>
+                <div class="stat-subtitle">Bugun tugallangan sessiyalar</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">JAMI SESSIYALAR</div>
+                <div class="stat-value" id="totalCount">0</div>
+                <div class="stat-subtitle">Barcha vaqt davomida</div>
+            </div>
+        </div>
+
+        <div class="keyboard-shortcuts">
+            <p>Klaviatura tugmalari:</p>
+            <ul>
+                <li><kbd>Space</kbd> - Boshlash/To'xtatish</li>
+                <li><kbd>R</kbd> - Qayta boshlash</li>
+                <li><kbd>S</kbd> - Sozlamalar</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>Sozlamalar</h2>
+            
+            <div class="settings-group">
+                <label for="workTime">Ishlash vaqti (daqiqa):</label>
+                <input type="number" id="workTime" min="1" max="60" value="25">
+            </div>
+            
+            <div class="settings-group">
+                <label for="breakTime">Tanaffus vaqti (daqiqa):</label>
+                <input type="number" id="breakTime" min="1" max="30" value="5">
+            </div>
+            
+            <div class="settings-group">
+                <label for="longBreakTime">Uzoq tanaffus vaqti (daqiqa):</label>
+                <input type="number" id="longBreakTime" min="5" max="45" value="15">
+            </div>
+            
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" id="soundEnabled">
+                    Ovozli bildirishnomalar
+                </label>
+            </div>
+            
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" id="motivationEnabled">
+                    Motivatsion xabarlar
+                </label>
+            </div>
+            
+            <div class="modal-buttons">
+                <button id="saveSettings" class="btn btn-primary">SAQLASH</button>
+                <button id="closeSettings" class="btn btn-warning">BEKOR QILISH</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
