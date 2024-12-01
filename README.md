@@ -4,14 +4,14 @@ Minimalistik va zamonaviy Pomodoro vaqt boshqaruvi ilovasi. PWA texnologiyasi yo
 
 ## Xususiyatlar
 
-- 🎯 25/5/15 minutlik Pomodoro sessiyalari
-- 🌙 Tungi rejim
-- 📊 Statistika kuzatuvi
-- 🔔 Ovozli bildirishnomalar
-- 💪 Motivatsion xabarlar
-- ⌨️ Klaviatura yorliqlari
-- 📱 PWA - oflayn ishlash
-- 🎨 Minimalistik dizayn
+- 25/5/15 minutlik Pomodoro sessiyalari
+- Tungi rejim
+- Statistika kuzatuvi
+- Ovozli bildirishnomalar
+- Motivatsion xabarlar
+- Klaviatura yorliqlari
+- PWA - oflayn ishlash
+- Minimalistik dizayn
 
 ## Ishlatish
 
@@ -31,7 +31,7 @@ Minimalistik va zamonaviy Pomodoro vaqt boshqaruvi ilovasi. PWA texnologiyasi yo
 
 ```bash
 # Repozitoriyani klonlash
-git clone https://github.com/username/pomodoro.git
+git clone https://github.com/jaxongirtoshpolatovv/pomodoro.git
 
 # Papkaga kirish
 cd pomodoro
